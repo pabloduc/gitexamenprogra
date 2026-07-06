@@ -28,3 +28,24 @@ def buscar_codigo(codigo, productos):
         if cod.lower() == codigo.lower():
             return True
     return False
+
+def validar_codigo(codigo, productos):
+    if len(codigo.strip()) == 0:
+        return False
+    if buscar_codigo(codigo, productos):
+        return False
+    return True
+
+def validar_nombre(nombre):
+    if len(nombre.strip()) == 0:
+        return False
+    return True
+
+def validar_precio(precio):
+    if len(precio.strip()) == 0:
+        return False
+    try:
+        float(precio)
+        return True
+    except ValueError:
+        return False
